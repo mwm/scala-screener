@@ -21,7 +21,13 @@ class ScreenerSpec extends FlatSpec with Matchers {
     fileStats.totalWordCount should be (expectedWords)
   }
 
-  it must "count occurences of a specific word in a file" in (pending)
+  it must "count occurences of a specific word in a file" in {
+    val expectedCount = 10
+    fileStats.wordCount("people") should be (expectedCount)
+  }
 
-  it must "calculate the frequency of all words in a file" in (pending)
+  it must "calculate the frequency of all words in a file" in {
+    val firstThree = List ("the", "of", "to")
+    fileStats.orderedWords.take(3) should be (firstThree)
+  }
 }
